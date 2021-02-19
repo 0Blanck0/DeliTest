@@ -50,6 +50,33 @@ main {
     text-align: center;
 }
 
+.hover_container {
+    position: absolute;
+    display: block;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    background-color: #00000077;
+    text-align: center;
+}
+
+.popup_container {
+    position: relative;
+    display: block;
+    z-index: 101;
+    width: 450px;
+    height: 650px;
+    margin: auto;
+    margin-top: 85px;
+    padding: 0;
+    text-align: center;
+    background-color: #FFFFFF;
+}
+
 .container {
     width: 100%;
     height: 100%;
@@ -76,6 +103,46 @@ h1 {
 h4 {
     margin-top: 0;
     padding-top: 0;
+}
+
+.main_btn {
+    width: 120px;
+    height: 45px;
+    font-size: 1em;
+    border-radius: 0;
+    border: 1px solid #222222;
+    cursor: pointer;
+}
+
+.main_btn:hover {
+    transition: 0.3s;
+    transform: scale(1.05);
+}
+
+.main_btn:hover>span {
+    transition: 0.5s;
+    transform: rotate(7deg);
+    -ms-transform: rotate(7deg);
+    -webkit-transform: rotate(7deg);
+    display: inline-block;
+}
+
+.main_btn#dumbo {
+    background-color: #FFFFFF;
+    color: #030303;
+}
+
+.main_btn#dumbo:hover {
+    background-color: #bbbbbb;
+}
+
+.main_btn#bouillon {
+    background-color: #ff651e;
+    color: #030303;
+}
+
+.main_btn#bouillon:hover {
+    background-color: #bbbbbb;
 }
 
 .flex_row {
