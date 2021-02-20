@@ -6,8 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/popup.css">
 
-        <script src="js/script.js" async></script>
+        <script src="js/popupManager.js" async></script>
+        <script src="js/logRegManager.js" async></script>
 
         <title>DeliTest</title>
     </head>
@@ -15,28 +17,93 @@
         <header>
             <nav>
                 <div class="btn_container">
-                    <button>Login</button>
+                    <button id="log_btn">Login</button>
                 </div>
+
                 <div class="btn_container">
-                    <button>SignIn</button>
+                    <button id="reg_btn">SignIn</button>
                 </div>
             </nav>
         </header>
 
         <main>
-            <div class="hover_container">
+            <div class="hover_container" id="hover_container_id">
                 <div class="popup_container">
                     <div class="closer">
-                        <img id="closer_id" class="closer" src="img/close.png" alt="btn for close popup">
+                        <img id="closer_id" src="img/autre/close.png" alt="btn for close popup">
                     </div>
+
                     <div class="img_container">
-
+                        <img id="restor_img" src="img/autre/close.png" alt="Restaurant img">
                     </div>
-                    <div class="details_container">
 
+                    <div class="details_container">
+                        <div class="flex_col">
+                            <div class="popup_title flex_content">
+                                <h2>Dumbo</h2>
+                                <h3>Burgers</h3>
+                            </div>
+
+                            <div class="address_container flex_content">
+                                <p>64 rue jean-Baptiste Pigalle, 75009 Paris.</p>
+                            </div>
+                        </div>
+
+                        <div class="sigles_container">
+                            <div class="flex_row no_mp">
+                                <div class="flex_content">
+                                    <div class="flex_col">
+                                        <div class="sigle_img">
+                                            <img src="img/autre/close.png" alt="sigle container">
+                                        </div>
+
+                                        <div class="sigle_txt">
+                                            <p>text here</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex_content">
+                                    <div class="flex_col">
+                                        <div class="sigle_img">
+                                            <img src="img/autre/close.png" alt="sigle container">
+                                        </div>
+
+                                        <div class="sigle_txt">
+                                            <p>text here</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex_content">
+                                    <div class="flex_col">
+                                        <div class="sigle_img">
+                                            <img src="img/autre/close.png" alt="sigle container">
+                                        </div>
+
+                                        <div class="sigle_txt">
+                                            <p>text here</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex_content">
+                                    <div class="flex_col">
+                                        <div class="sigle_img">
+                                            <img src="img/autre/close.png" alt="sigle container">
+                                        </div>
+
+                                        <div class="sigle_txt">
+                                            <p>text here</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
             <div class="container">
                 <div class="title_container">
                     <h1>~ DeliTest ~</h1>
@@ -48,6 +115,7 @@
                         <div class="flex_content">
                             <button class="main_btn" id="dumbo"><span>Dumbo</span></button>
                         </div>
+
                         <div class="flex_content">
                             <button class="main_btn" id="bouillon"><span>Bouillon 47</span></button>
                         </div>
