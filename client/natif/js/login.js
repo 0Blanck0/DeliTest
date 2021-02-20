@@ -1,4 +1,5 @@
 var submit_btn = document.getElementById('send_btn');
+var back_btn = document.getElementById('back_btn_id');
 
 submit_btn.addEventListener('click', function(event) {
     event.preventDefault();
@@ -16,6 +17,10 @@ submit_btn.addEventListener('click', function(event) {
         sendData(data, mail_input, psw_input);
     } else
         error.hidden = false;
+});
+
+back_btn.addEventListener('click', function() {
+    window.location.href = "../index.html";
 });
 
 function sendData(data, mail, psw)

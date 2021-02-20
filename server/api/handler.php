@@ -55,16 +55,26 @@ function registerUser()
         $mail = $_POST['mail'];
         $pass = md5($_POST['psw']);
 
-        $query = $db->prepare("INSERT INTO users SET mail=:mail, password=:psw");
-        $query->execute(["mail" => $mail, "psw" => $pass]);
+        $query = $db->prepare("SELECT * From users WHERE mail=:mail");
+        $query->execute(["mail" => $mail]);
+        $login = $query->fetchAll();
 
-        echo json_encode([
-            "status" => "success",
-            "message" => "User created"
-        ]);
+        if (count($login) <= 0) {
+            $query = $db->prepare("INSERT INTO users SET mail=:mail, password=:psw");
+            $query->execute(["mail" => $mail, "psw" => $pass]);
 
+            echo json_encode([
+                "status" => "success",
+                "message" => "User created"
+            ]);
+        } else {
+            echo json_encode([
+                "status" => "error",
+                "message" => "Wrong informations"
+            ]);
+        }
     }else{
-        echo json_encodeson_encode([
+        echo json_encode([
             "status" => "error",
             "message" => "Wrong informations"
         ]);
