@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8" lang="fr">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="../css/logReg.css">
+
+        <script src="../js/logRegManager.js" async></script>
+
+        <title>DeliTest - Register</title>
+    </head>
+    <body>
+        <div class="login_container">
+
+            <div class="title_container">
+                <h2>Register</h2>
+            </div>
+        
+            <div class="form_container">
+                <form>
+        
+                    <div class="form_case">
+                        <input id="email" type="email" name="email" required autocomplete="email" autofocus>
+                        <label for="email">E-Mail</label>
+                    </div>
+        
+                    <div class="form_case">
+                        <input id="email-c" type="email" name="email-c" required>
+                        <label for="email-c">E-Mail confirm</label>
+                    </div>
+        
+                    <div class="form_case">
+                        <input id="password" type="password" name="password" required>
+                        <label for="password">Password</label>
+                    </div>
+
+                    <div class="form_case">
+                        <input id="password-c" type="password" name="password-c" required>
+                        <label for="password-c">Password confirm</label>
+                    </div>
+
+                    <div class="error" hidden>
+                        <p class="red">Erreur: les informations de confirmation ne sont pas les même...</p>
+                    </div>
+        
+                    <div class="form_case forgot_container">
+                        <div class="fot_container">
+                            <div class="btn_container">
+                                <button id="send_btn" class="rainbow-button" alt="Send"></button>
+                            </div>
+                        </div>
+                    </div>
+        
+                </form>
+            </div>
+        
+        </div>
+    </body>
+</html>
