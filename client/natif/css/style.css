@@ -4,7 +4,7 @@ html, body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #FFFFFF;
+    background-color: #181A1B;
 }
 
 header {
@@ -65,6 +65,7 @@ main {
 
 h1, h4 {
     font-family: monospace, Arial, Helvetica, sans-serif;
+    color: #E8E6E3;
 }
 
 h1 {
@@ -101,8 +102,8 @@ h4 {
 }
 
 .main_btn#dumbo {
-    background-color: #FFFFFF;
-    color: #030303;
+    background-color: #1e2122;
+    color: #E8E6E3;
 }
 
 .main_btn#dumbo:hover {
@@ -111,7 +112,7 @@ h4 {
 
 .main_btn#bouillon {
     background-color: #ff651e;
-    color: #030303;
+    color: #E8E6E3;
 }
 
 .main_btn#bouillon:hover {
