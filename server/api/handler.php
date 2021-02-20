@@ -19,6 +19,7 @@ switch ($task) {
         loginUser();
         break;
     default:
+        echo "ok";
         return;
 }
 
@@ -28,41 +29,44 @@ function loginUser()
 
     if (!empty($_POST) && isset($_POST['mail']) && isset($_POST['psw'])) {
         $mail = $_POST['mail'];
-        $pass = $_POST['psw'];
+        $pass = md5($_POST['psw']);
 
-        $query = $db->prepare("SELECT * From users WHERE mail=:mail, password=:psw");
-        $query->execute(["mail" => $mail, "psw" => $pass]);
+        $query = $db->prepare("SELECT * From users WHERE mail=:mail");
+        $query->execute(["mail" => $mail]);
         $login = $query->fetchAll();
 
-        echo json_encode($login);
-    }else{
-        echo json_encodeson_encode([
-            "status" => "error",
-            "message" => "Message not exist"
-        ]);
-    }
+        foreach  ($login as $row) {
+            if ($row['password'] == $pass) {
+                echo "Match";
+                return 0;
+            }
+        }
+
+        echo "KO";
+    } else
+        echo "KO";
 }
 
-function postMessage()
+function registerUser()
 {
     global $db;
 
     if (!empty($_POST) && isset($_POST['mail']) && isset($_POST['psw'])) {
         $mail = $_POST['mail'];
-        $pass = $_POST['psw'];
+        $pass = md5($_POST['psw']);
 
-        $query = $db->prepare("INSERT INTO users SET mail=:mail, password=:psw, created_at = NOW(), party_room_id = :party_room_id, color_id = :color_id");
+        $query = $db->prepare("INSERT INTO users SET mail=:mail, password=:psw");
         $query->execute(["mail" => $mail, "psw" => $pass]);
 
         echo json_encode([
             "status" => "success",
-            "message" => "Message send"
+            "message" => "User created"
         ]);
 
     }else{
         echo json_encodeson_encode([
             "status" => "error",
-            "message" => "Message not exist"
+            "message" => "Wrong informations"
         ]);
     }
 }
