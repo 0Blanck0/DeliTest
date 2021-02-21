@@ -1,4 +1,5 @@
 var submit_btn = document.getElementById('send_btn');
+var back_btn = document.getElementById('back_btn_id');
 
 submit_btn.addEventListener('click', function(event) {
     event.preventDefault();
@@ -16,7 +17,7 @@ submit_btn.addEventListener('click', function(event) {
 
         error.hidden = true;
 
-        sendData(data);
+        sendData(data, mail_input, psw_input);
     } else {
         error.hidden = false;
         mail_v_input = "";
@@ -25,14 +26,31 @@ submit_btn.addEventListener('click', function(event) {
     }
 });
 
-function sendData(data)
+back_btn.addEventListener('click', function() {
+    window.location.href = "../index.html";
+});
+
+function sendData(data, mail, psw)
 {
     const requestAjax = new XMLHttpRequest();
     requestAjax.open("POST", "http://localhost/server/api/handler.php?task=register");
 
     requestAjax.onload = function() {
-        console.log(requestAjax.response);
-    }
+        let result = JSON.parse(requestAjax.response);
 
+        if (result.status == "success") {
+            sessionStorage.mail = mail;
+            sessionStorage.psw = psw;
+            sessionStorage.login = 1;
+
+            window.location.href = "../index.html";
+        } else {
+            sessionStorage.mail = null;
+            sessionStorage.psw = null;
+            sessionStorage.login = 0;
+
+            error.hidden = false;
+        }
+    }
     requestAjax.send(data);
 }

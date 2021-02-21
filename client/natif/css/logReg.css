@@ -266,6 +266,14 @@ button {
     margin: auto;
 }
 
+#back_btn_id {
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    color: #000000;
+    background-color: gray;
+}
+
 .rainbow-button {
     width:calc(8vw + 6px);
     height:calc(2vw + 6px);
