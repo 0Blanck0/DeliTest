@@ -17,9 +17,12 @@ CREATE TABLE IF NOT EXISTS `DeliTest`.`Restaurant` (
 -- -----------------------------------------------------
 -- Table `DeliTest`.`users`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `DeliTest`.`users` (
-  `id` INT NOT NULL,
-  `mail` VARCHAR(45) NOT NULL,
+CREATE TABLE IF NOT EXISTS `DeliTest`.`Users` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `mail` VARCHAR(120) NOT NULL,
   `password` VARCHAR(300) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `mail_UNIQUE` (`mail` ASC) VISIBLE);
+
+CREATE USER IF NOT EXISTS 'apiUser'@'%' IDENTIFIED WITH mysql_native_password BY 'apiUser';
+GRANT ALL PRIVILEGES ON DeliTest.* TO 'apiUser'@'%';

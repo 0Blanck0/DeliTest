@@ -1,6 +1,6 @@
 <?php
 
-$db = new PDO('mysql:host=localhost;dbname=Restaurant;charset=utf8', 'apiUser', 'apiUser', [
+$db = new PDO('mysql:host=localhost;dbname=DeliTest;charset=utf8', 'apiUser', 'apiUser', [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
 ]);
@@ -31,7 +31,7 @@ function loginUser()
         $mail = $_POST['mail'];
         $pass = md5($_POST['psw']);
 
-        $query = $db->prepare("SELECT * From users WHERE mail=:mail");
+        $query = $db->prepare("SELECT * From Users WHERE mail=:mail");
         $query->execute(["mail" => $mail]);
         $login = $query->fetchAll();
 
@@ -55,12 +55,12 @@ function registerUser()
         $mail = $_POST['mail'];
         $pass = md5($_POST['psw']);
 
-        $query = $db->prepare("SELECT * From users WHERE mail=:mail");
+        $query = $db->prepare("SELECT * From Users WHERE mail=:mail");
         $query->execute(["mail" => $mail]);
         $login = $query->fetchAll();
 
         if (count($login) <= 0) {
-            $query = $db->prepare("INSERT INTO users SET mail=:mail, password=:psw");
+            $query = $db->prepare("INSERT INTO Users SET mail=:mail, password=:psw");
             $query->execute(["mail" => $mail, "psw" => $pass]);
 
             echo json_encode([
